@@ -9,14 +9,15 @@ class SessionManager(context: Context) {
     companion object {
         private const val KEY_LOGGED_IN_USER = "logged_in_user"
         private const val PREFIX_USER = "user_pwd_"
+        private const val KEY_DARK_THEME = "dark_theme_pref"
     }
 
-    fun register(username: String, password: String): Boolean {
+    fun registerUser(username: String, password: String): Boolean {
         val trimmedUser = username.trim().lowercase()
         if (trimmedUser.isEmpty() || password.isEmpty()) return false
         
         // Check if user already exists
-        if (prefs.contains(PREFIX_USER + trimmedUser)) {
+        if (userExists(trimmedUser)) {
             return false // User already exists
         }
 
@@ -40,11 +41,20 @@ class SessionManager(context: Context) {
         prefs.edit().remove(KEY_LOGGED_IN_USER).apply()
     }
 
-    fun getLoggedInUser(): String? {
+    fun getUsername(): String? {
         return prefs.getString(KEY_LOGGED_IN_USER, null)
     }
 
-    fun isLoggedIn(): Boolean {
-        return getLoggedInUser() != null
+    fun userExists(username: String): Boolean {
+        val trimmedUser = username.trim().lowercase()
+        return prefs.contains(PREFIX_USER + trimmedUser)
+    }
+
+    fun isDarkTheme(): Boolean {
+        return prefs.getBoolean(KEY_DARK_THEME, false)
+    }
+
+    fun setDarkTheme(enabled: Boolean) {
+        prefs.edit().putBoolean(KEY_DARK_THEME, enabled).apply()
     }
 }

@@ -6,8 +6,8 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GoalDao {
-    @Query("SELECT * FROM goals ORDER BY createdAt DESC")
-    fun getAllGoals(): Flow<List<Goal>>
+    @Query("SELECT * FROM goals WHERE username = :username ORDER BY createdAt DESC")
+    fun getGoalsForUser(username: String): Flow<List<Goal>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertGoal(goal: Goal): Long

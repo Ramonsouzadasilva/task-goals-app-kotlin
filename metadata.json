@@ -1,6 +1,6 @@
 {
-  "name": "Notion Task Board",
-  "description": "A minimalist, high-contrast, Notion-style task and goal board with drag-and-drop columns, daily tasks, retractable sidebar, alternate list view, filters, and light/dark theme.",
+  "name": "Notion Task List",
+  "description": "A minimalist, high-contrast, Notion-style task and goal list manager with responsive layouts, collapsible categories, and light/dark theme.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

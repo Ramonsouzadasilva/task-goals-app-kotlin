@@ -16,3 +16,12 @@ Aplicativo Android desenvolvido em **Kotlin** para gerenciamento de tarefas e me
 - Kotlin
 - Android SDK
 
+## 🚀 Como executar
+
+### Pré-requisitos
+
+- Android Studio
+- JDK 17 ou superior
+
+
+

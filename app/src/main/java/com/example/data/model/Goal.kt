@@ -5,8 +5,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "goals")
 data class Goal(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val title: String,
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    val username: String,
+    val name: String,
     val description: String = "",
     val createdAt: Long = System.currentTimeMillis()
 )
